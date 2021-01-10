@@ -11,10 +11,23 @@ h1 {
     margin-top: 0px;
     padding-top: 20px;
 }
+form{
+    display:flex;
+    flex-direction: column;
+}
+input{
+    position:relative;
+    height:100%;
+    width:80%;
+}
 
 textarea {
-    height: 90vh;
+    height: 50vh;
     width: 80%;
+    margin-bottom:10px;
+}
+.btn{
+    width:200px;
 }
 
 .main {

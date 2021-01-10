@@ -6,4 +6,9 @@
 
 {% block body %}
     <h1>Add new page</h1>
+    <form action="{% url 'new_page' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-primary" type="submit">Add page</button>
+    </form>
 {% endblock %}
