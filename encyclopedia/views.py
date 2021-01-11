@@ -50,3 +50,17 @@ def random_page(request):
     entries = util.list_entries()
     selected_page = random.choice(entries)
     return redirect('entry', title=selected_page)
+
+
+def search(request):
+    if request.method == "GET":
+        search_entry = request.GET['q']
+        entries = util.list_entries()
+        if request.method == "GET":
+            if search_entry.lower() in (single_entry.lower() for single_entry in entries):
+                return redirect('entry', title=search_entry)
+            else:
+                results = list(filter(lambda x: search_entry in x.lower(), entries))
+            return render(request, "encyclopedia/search.html", {
+                "results": results
+            })
